@@ -5,27 +5,45 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'login',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
 
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () =>
+      import('./tabs/tabs.module').then((m) => m.TabsPageModule),
   },
 
   {
     path: 'dados-filme',
-    loadChildren: () => import('./dados-filme/dados-filme.module').then( m => m.DadosFilmePageModule)
+    loadChildren: () =>
+      import('./dados-filme/dados-filme.module').then(
+        (m) => m.DadosFilmePageModule
+      ),
   },
+
+  {
+    path: 'dados-serie',
+    loadChildren: () =>
+      import('./dados-serie/dados-serie.module').then(
+        (m) => m.DadosSeriePageModule
+      ),
+  },
+
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  }
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginPageModule),
+  },
+  {
+    path: 'dados-serie',
+    loadChildren: () => import('./dados-serie/dados-serie.module').then( m => m.DadosSeriePageModule)
+  },
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
