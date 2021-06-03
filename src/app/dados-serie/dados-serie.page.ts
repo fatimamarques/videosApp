@@ -12,14 +12,15 @@ export class DadosSeriePage implements OnInit {
 
   serie: ISerie;
 
-  generos: string[] = [];
+  generoserie: string[] = [];
 
   constructor(public dadosService: DadosService) { }
 
   ngOnInit() {
     this.serie = this.dadosService.pegarDados('serie');
-    this.generos = this.dadosService.pegarDados('generos');
+    this.generoserie = this.dadosService.pegarDados('generos');
     console.log('Serie enviada', this.serie);
+    console.log('generoSerie enviada', this.generoserie);
   }
 
 }

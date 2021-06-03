@@ -26,12 +26,12 @@
             <p>{{serie.first_air_date | date: 'shortDate'}} </p>
             <p>{{serie.original_language}}</p>
 
-<!--
-            <ion-badge color="light" *ngFor="let idGenero of filme.genre_ids"
+
+            <ion-badge color="light" *ngFor="let idGenero of serie.genre_ids"
               >
-              {{generos[idGenero]}}
+              {{generosSerie[idGenero]}}
             </ion-badge>
- -->
+
           </div>
         </ion-label>
         <ion-chip [color]="serie.vote_average < 5 ? 'danger' : ((serie.vote_average <7)? 'warning':'success')"outline>

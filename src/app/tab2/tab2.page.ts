@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { SeriesService } from '../services/series.service';
 import { IListaSeries, ISerie } from '../models/iSerie.model';
 import { DadosService } from './../services/dados.service';
-import { GeneroService } from '../services/genero.service';
+import { GeneroserieService } from '../services/generoserie.service';
+
 
 @Component({
   selector: 'app-tab2',
@@ -14,14 +15,14 @@ import { GeneroService } from '../services/genero.service';
 export class Tab2Page implements OnInit {
   titulo = 'Series';
   listaSeries: IListaSeries;
-  generos: string[] = [];
+  generosSerie: string[] = [];
 
   constructor(
     public alertController: AlertController,
     public toastController: ToastController,
     public seriesService: SeriesService,
     public dadosService: DadosService,
-    public generoService: GeneroService,
+    public generoSeService: GeneroserieService,
     public route: Router
   ) {}
 
@@ -74,13 +75,13 @@ export class Tab2Page implements OnInit {
   }
 
   ngOnInit() {
-    this.generoService.buscarGeneros().subscribe((dados) => {
+    this.generoSeService.buscarGenerosSeries().subscribe((dados) => {
       console.log('Generos: ', dados.genres);
       dados.genres.forEach((genero) => {
-        this.generos[genero.id] = genero.name;
+        this.generosSerie[genero.id] = genero.name;
       });
 
-      this.dadosService.guardarDados('generos', this.generos);
+      this.dadosService.guardarDados('generos', this.generosSerie);
     });
   }
 }

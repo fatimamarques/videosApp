@@ -1,4 +1,4 @@
-import { GeneroService } from './../services/genero.service';
+
 import { IListaFilmes, IFilmeApi } from './../models/iFilmeAPI.models';
 import { FilmeService } from './../services/filme.service';
 import { IFilme } from './../models/iFilme.model';
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { GeneroService } from '../services/genero.service';
 
 @Component({
   selector: 'app-tab1',
